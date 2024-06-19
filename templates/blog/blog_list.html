@@ -1,0 +1,26 @@
+{% extends 'core/core.html' %}
+{% block content %}
+  {% load crispy_forms_tags %}
+  <div class="container mt-5">
+    <div class="row mt-5 pt-5">
+      <div class="col-md-6 offset-md-3">
+        <h2>Blogs</h2>
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              {% for blog in blogs %}
+                <li class="mb-4">
+                  <h3>{{ blog.title }}</h3>
+                  <p class="text-info">Author: {{ blog.author }}</p>
+                  <p class="text-secondary">Date Posted: {{ blog.date_posted }}</p>
+                </li>
+              {% empty %}
+                <p class="text-info">No blogs available.</p>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
